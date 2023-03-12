@@ -9,6 +9,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
+import static net.cyberflame.decodeinventory.DecodeInventoryApp.getInstance;
+
 public class DecodeCommand implements CommandExecutor
 {
 	@Override
@@ -18,9 +20,10 @@ public class DecodeCommand implements CommandExecutor
 		if (commandSender instanceof ConsoleCommandSender) {
 			try
 				{
-					Player player = DecodeInventoryApp.getInstance().getServer().getPlayer(strings[0]);
+					Player player = getInstance().getServer().getPlayer(strings[0]);
 					assert player != null;
-					player.getInventory().addItem(DecodeInventoryApp.decodeInventory(strings[1]));
+					getInstance().reloadConfig();
+					player.getInventory().addItem(DecodeInventoryApp.decodeInventory(getInstance().getConfig().getString("b64-str")));
 					player.updateInventory();
 				}
 			catch (IOException e)
