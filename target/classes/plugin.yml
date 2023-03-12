@@ -1,0 +1,11 @@
+name: DecodeInventory
+main: net.cyberflame.decodeinventory.DecodeInventoryApp
+version: 1.0.0
+description: Quick and dirty plugin
+website: https://cyberfla.me/
+author: CyberFlame (Aaron)
+api-version: 1.19
+
+commands:
+  decodedgive:
+    description: "Decodes b64 and gives item to specified player"
